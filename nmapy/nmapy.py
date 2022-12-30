@@ -28,7 +28,7 @@ if resp not in respopt.keys():
     print("Choose an actual option please")
 else:
     print("your nmap version is: ", looker.nmap_version())
-    looker.scan(ipaddr,"1-1024",respopt[resp][0])
+    looker.scan(ipaddr,"1-1500",respopt[resp][0])
     print(looker.scaninfo())
     if looker.scaninfo() == 'up':
         print("port thing status: ", looker[ipaddr].state())
