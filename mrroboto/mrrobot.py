@@ -13,13 +13,19 @@ print(title)
 print(eyes)
 print(mouth)
 
-passwd = input("provide a password for encryption: ")
-passwd = b"{passwd}"
+print("""[1] encrypt a password
+        [2] create encrypted file(tar,zip,gzip) 
+        [3] create and store encrypted passwords""")
+
+resp = input(": ")
 
 def encpass(passwd):
     passwd = b'{passwd}'
     passen = bcrypt.hashpw(passwd, bcrypt.gensalt())
-    passen = sha256(sha256.digest(passen))
+    passen = passen.hexdiget()
+    passen = sha256(sha256(passen))
     print(passen)
 
-encpass(passwd)
+if resp == "1":
+    passwd = input("Please provide a password for encrytion: ")
+    encpass(passwd)
