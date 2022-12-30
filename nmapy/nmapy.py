@@ -2,6 +2,8 @@
 
 import nmap
 import pyfiglet
+import socket
+
 
 looker = nmap.PortScanner()
 
@@ -34,3 +36,23 @@ else:
         print("port thing status: ", looker[ipaddr].state())
         print(looker[ipaddr].all_protocols)
         print("DA OPEN PORTS ARE: ", looker[ipaddr][respopt[resp][1]].keys())
+
+servport = int("1-1500")
+
+def server():
+    with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
+        s.bind((ipaddr, servport))
+        s.listen(3)
+        conn, ipaddr = s.accept()
+        with conn:
+            while True:
+                conn.send(b"Hello world")
+                break
+
+def client():
+    with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
+        s.connect((ipaddr, servport))
+        data = s.recv(1-1500)
+        print(data)
+
+    input()
