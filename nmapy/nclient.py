@@ -4,8 +4,8 @@ import socket
 
 mycomp = socket.gethostname()
 myip = socket.gethotbyname(mycomp)
-servip = 
-servport =
+servip = socket.gethostbyname(mycomp)
+servport = 1-1501
 
 with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
     s.connect((servip, servport))

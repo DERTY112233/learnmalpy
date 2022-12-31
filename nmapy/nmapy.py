@@ -58,7 +58,7 @@ else:
         print(looker[ipaddr].all_protocols)
         print("DA OPEN PORTS ARE: ", looker[ipaddr][respopt[resp][1]].keys())
         try:
-            for port in range(servport):
+            for port in range(1,1501):
                 if looker[ipaddr].scaninfo() == "up" and looker[ipaddr].state == "open":
                     nmap.connect()
                     print("open, up and connecting...")
