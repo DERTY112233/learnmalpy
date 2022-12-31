@@ -14,11 +14,13 @@ print(eye)
 print("by derty")
 print("<---------------------------------------------------->")
 
+mycomp = socket.gethostname()
+myip = socket.gethostbyname(mycomp)
+servport = 1-1501
 ipaddr = input("enter the IP address you want to scan: ")
 print("The IP you entered is: ", ipaddr)
 type(ipaddr)
 
-servport = 1-1501
 
 def server():
     with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
@@ -32,7 +34,7 @@ def server():
 
 def client():
     with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
-        s.connect((ipaddr, servport))
+        s.connect((myip, servport))
         data = s.recv(1-1500)
         print(data)
 
@@ -59,11 +61,11 @@ else:
         print("DA OPEN PORTS ARE: ", looker[ipaddr][respopt[resp][1]].keys())
         try:
             for port in range(1,1501):
-                if looker[ipaddr].scaninfo() == "up" and looker[ipaddr].state == "open":
+                if looker[ipaddr].scaninfo() == "up" and looker[ipaddr].state == True:
                     nmap.connect()
                     print("open, up and connecting...")
         except:
-            print("!!!!!CLOSED!!!!!")
+            print("[]<-CLOSED->[]")
 
 
 
