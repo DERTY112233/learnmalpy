@@ -4,7 +4,7 @@ import turtle
 
 wn = turtle.Screen()
 wn.title("Pong by DERTY http://github.com/DERTY112233")
-wn.bgcolor("red")
+wn.bgcolor("green")
 wn.setup(width=800, height=600)
 wn.tracer(0)
 

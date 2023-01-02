@@ -3,7 +3,7 @@
 import nmap
 import pyfiglet
 import socket
-
+import requests
 
 looker = nmap.PortScanner()
 
@@ -35,7 +35,7 @@ def server():
 def client():
     with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
         s.connect((myip, servport))
-        data = s.recv(1-1500)
+        data = s.recv(1-1501)
         print(data)
 
     input()
