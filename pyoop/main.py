@@ -11,8 +11,8 @@ class students:
 
 
 
-stu1 = students('Joel', 'Paiva', "joelpaiva112233@gmail.com")
-stu2 = students('Storm', 'Paiva', "stormiboi8080@gmail.com")
+stu1 = students('joyien', 'noscope', "jojonoscope22@gmail.com")
+stu2 = students('DERTY', 'boi', "dertiboi8080@gmail.com")
 
 stu1.fullname()
 
