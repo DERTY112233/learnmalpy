@@ -3,9 +3,9 @@
 import threading
 import socket
 
-deadboi = '192.168.8.1'
+deadboi = '' #ip of vic
 port = 80
-notmyip = '192.805.9.5'
+notmyip = '192.805.9.5' #fake ip for yourself
 
 connections = 0
 
