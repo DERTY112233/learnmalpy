@@ -19,7 +19,7 @@ server.login('joelpaiva112233@gmail.com', password)
 
 msg = MIMEMultipart()
 msg['from '] = 'DERTYBOI'
-msg['to'] = 'joelpaiva112233@gmail.com'
+msg['to'] = '' # receiver
 msg['subject'] = 'test'
 
 with open('testmessage.txt', 'r') as f:
@@ -39,4 +39,4 @@ msg.attach(pay)
 
 text = msg.as_string()
 
-server.sendmail('joelpaiva112233@gmail.com','joelpaiva112233@gmail.com', text)
+server.sendmail('','', text) #sender, receiver
