@@ -14,16 +14,15 @@ print(eyes)
 print(mouth)
 
 print("""[1] encrypt a password
-        [2] create encrypted file(tar,zip,gzip) 
-        [3] create and store encrypted passwords""")
+[2] create encrypted file(tar,zip,gzip) 
+[3] create and store encrypted passwords""")
 
 resp = input(": ")
 
 def encpass(passwd):
     passwd = b'{passwd}'
     passen = bcrypt.hashpw(passwd, bcrypt.gensalt())
-    passen = passen.hexdiget()
-    passen = sha256(sha256(passen))
+    passen = passen.pop(0,1,-1)
     print(passen)
 
 if resp == "1":

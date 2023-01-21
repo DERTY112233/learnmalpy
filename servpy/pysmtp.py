@@ -2,7 +2,7 @@
 
 import smtplib
 from email import encoders
-from enail.mime.text import MIMEText
+from email.mime.text import MIMEText
 from email.mime.base import MIMEBase
 from email.mime.multipart import MIMEMultipart
 
@@ -19,7 +19,7 @@ server.login('joelpaiva112233@gmail.com', password)
 
 msg = MIMEMultipart()
 msg['from '] = 'DERTYBOI'
-msg['to'] = '' # receiver
+msg['to'] = 'joelpaiva112233@gmail.com' # receiver
 msg['subject'] = 'test'
 
 with open('testmessage.txt', 'r') as f:
@@ -39,4 +39,4 @@ msg.attach(pay)
 
 text = msg.as_string()
 
-server.sendmail('','', text) #sender, receiver
+server.sendmail('joelpaiva112233@gmail.com','joelpava112233@gmail.com', text) #sender, receiver

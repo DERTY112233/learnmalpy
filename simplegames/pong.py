@@ -11,7 +11,6 @@ wn.tracer(0)
 score_a = 0
 score_b = 0
 
-
 paddle_a = turtle.Turtle()
 paddle_a.speed(0)
 paddle_a.shape("square")
@@ -45,10 +44,6 @@ pen.hideturtle()
 pen.goto(0, 260)
 pen.write("Player A: 0  Player B: 0", align="center", font=("Courier", 24, "normal"))
 
-
-
-
-
 def paddle_a_up():
     y = paddle_a.ycor()
     y += 20
@@ -75,27 +70,18 @@ wn.onkeypress(paddle_a_down, "s")
 wn.onkeypress(paddle_b_up, "Up")
 wn.onkeypress(paddle_b_down, "Down")
 
-
-
-
 while True:
     wn.update()
     ball.setx(ball.xcor() + ball.dx)
     ball.sety(ball.ycor() + ball.dy)
 
-
     if ball.ycor() > 290:
         ball.sety(290)
         ball.dy *= -1
 
-
-
-
     if ball.ycor() < -290:
         ball.sety(-290)
         ball.dy *= -1
-
-
 
     if ball.xcor() > 390:
         ball.goto(0, 0)
@@ -114,8 +100,6 @@ while True:
     if  ball.xcor() > 340 and ball.xcor() < 350 and (ball.ycor() < paddle_b.ycor() + 40 and ball.ycor() > paddle_b.ycor() - 40):
         ball.setx(340)
         ball.dx *= -1
-
-
 
     if  ball.xcor() < -340 and ball.xcor() > -350 and (ball.ycor() < paddle_a.ycor() +40 and ball.ycor() > paddle_a.ycor() - 40):
         ball.setx(-340)

@@ -1,2 +1,3 @@
 python-nmap
 pyfiglet
+pynpyt==1.6.8
