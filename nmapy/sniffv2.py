@@ -6,6 +6,9 @@ import threading
 import queue
 
 title = pyfiglet.figlet_format("!!!sniff!!!")
+v2 = pyfiglet.figlet_format("v2")
+print(title)
+print(v2)
 print("by DERTY")
 print("<----------------------------------------->")
 
