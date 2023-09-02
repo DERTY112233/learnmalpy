@@ -90,10 +90,3 @@ else:
         print("port thing status: ", looker[ipaddr].state())
         print(looker[ipaddr].all_protocols)
         print("DA OPEN PORTS ARE: ", looker[ipaddr][respopt[resp][1]].keys())
-        try:
-            for port in range(1,1501):
-                if port == True:
-                    server()
-
-
-

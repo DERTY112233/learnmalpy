@@ -6,7 +6,7 @@ import os
 folder = "youdownmp3"
 
 subprocess.call("clear", shell=True)
-subprocess.call(f"mkdir {folder}", shell=True)
+subprocess.call(f"mkdir '~/{folder}'")
 
 title = pyfiglet.figlet_format("!!YOUDOWN!!")
 print(f"{title}\nBY DERTY")
@@ -25,7 +25,7 @@ def downmp3():
     with youtube_dl.YoutubeDL(options) as ydl:
         ydl.download([vidinfo['webpage_url']])
     print("Da download complete now... {}".format(filename))
-    subprocess.call("mv {filename} {folder}", shell=True)
+    subprocess.call("mv {filename} {folder}")
 
 
 def manymp3():
